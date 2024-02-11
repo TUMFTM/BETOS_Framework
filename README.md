@@ -1,4 +1,4 @@
-# BETOS_Framework
+# BETOS Framework (Battery-electric Truck Operation Simulation)
 This repository provides the open-source code for the operation simulation of battery-electric trucks (BET) in long-haul applications.  
 The simulation framework belongs to the following research articles:  
 Optimizing the Journey: Dynamic Charging Strategies for Battery-Electric Trucks in Long-Haul Transport  
