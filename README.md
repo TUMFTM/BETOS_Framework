@@ -56,6 +56,7 @@ All results and plotting scripts for this paper can be found in M13_Simulation_T
 ### Simulation:
 
 ### Visualization used in the research article: Optimizing the Journey:
+We provide a plotting script within Modules/M13_Simulation_Task/M13_Plotting_Script_Research_Article. If you call the function plotting() all Figures of the paper are generated.  The results used in the research article are located in M13_Simulation_Task/Results/Paper_no2/.
 
 ## End-of-life simulation for lifetime prediction of battery-electric long-haul-trucks:
 Further information will be provided as soon the research article is published.  
