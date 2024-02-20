@@ -1,7 +1,7 @@
 # Framework Main Function
-# Designed by MX-2022-10-01
+# Designed by MX-2024-12-02
 # Function description
-# Main Function: Vehicle Simulation of one operation scenario as Input
+# Main Function: Operation Simulation and Evaluation of Battery Electric Trucks
 
 # Import Libraries______________________________________________________________________________________________________
 import numpy as np
@@ -10,32 +10,26 @@ import multiprocessing as mp
 # Import Functions______________________________________________________________________________________________________
 from Modules.M8_Operation_Simulation.M8_4_Simulation import M84_Oneday_Simulation
 from Modules.M13_SimulationTask import M13_SimulationTask
-from Modules.M13_SimulationTask import M13_SimulationTask_Vis
 from Modules.M13_SimulationTask.M13_Results import M13_Result_Evaluation
-from Modules.M13_SimulationTask import M13_Vis_ATZ_EEPS
 from Modules.M8_Operation_Simulation.M8_4_Simulation import M84_Multiday_Simulation
+from Modules.M13_SimulationTask import M13_Plotting_Script_Research_Article
 import scenario_definition
 # ______________________________________________________________________________________________________________________
+# ______________________________________________________________________________________________________________________
 # Single Simulation Function:
-#s1 = scenario_definition.scenario_gen()
+# s1 = scenario_definition.scenario_gen()
 # Single Day (max 700 km)
-#sim, env, results = M84_Oneday_Simulation.oneday_sim(scenario=s1)
+# sim, env, results = M84_Oneday_Simulation.oneday_sim(scenario=s1)
 # Multi Day Simulation (max 3000 km)
 # sim, env, vehicle, results = M84_Multiday_Simulation.single_sim_multiday(scenario=s1)
-#
 # ______________________________________________________________________________________________________________________
 # ______________________________________________________________________________________________________________________
 # Paper: Optimizing the Journey - Dynamic charging strategies for battery electric long-haul trucks, M.Zaehringer et al.
 # Single Simulation Run Simulation
 # s1, s2, s3, s4, s31, s32, s33, s34, s41, s42, s43, s44, s45, s46, s47 = scenario_definition.scenario_betos_sec42()
 # sim, env, results = M84_Oneday_Simulation.oneday_sim(scenario=s1)
-# Visualization function
-# M13_SimulationTask_Vis.real_world_vis()
-# M13_SimulationTask_Vis.vis_sensitivity()
-# M13_SimulationTask_Vis.vis_prediction_task()
-# M13_SimulationTask_Vis.paper_2_vis_infrastructure()
-# M13_Vis_ATZ_EEPS.vis_atz()
-# ______________________________________________________________________________________________________________________
+# Plotting if article figures:
+# M13_Plotting_Script_Research_article.plotting()
 # ______________________________________________________________________________________________________________________
 # ______________________________________________________________________________________________________________________
 # Calculation for Paper: Optimizing the Journey via Multiprocessing
