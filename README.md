@@ -2,11 +2,8 @@
 This repository provides the open-source code for the operation simulation of battery-electric trucks (BET) in long-haul applications.  
 The simulation framework belongs to the following research articles:  
 Optimizing the Journey: Dynamic Charging Strategies for Battery-Electric Trucks in Long-Haul Transport  
-Authors: M.Zaehringer, O.Teichert, J.Schneider, G.Balke, M.Lienkamp  
+Authors: M.Zaehringer, O.Teichert, G.Balke, J.Schneider, M.Lienkamp  
 DOI: https://doi.org/10.3390/en17040973
-
-## General information of the repository
-
 
 ## Necessary Python Packages and Libraries:
 We recommend Python 3.7 to 3.10 to run the code.
@@ -14,8 +11,13 @@ The following libraries are used: numpy, scipy, matplotlib, multiprocessing, pan
 ## Attention: Important first step:
 Before the code can be used, you have to unpack the used driving profiles to create an underlying driving cycle. These are stored in M3_Freight_Properties/M3_TruckMobility_Database. Otherwise, the simulation is not able to build the driving cycles. 
 
+## Model Structure and Parameters:
+The simulation has a modular structure. The first modules, "M1_Vehicle_Properties", "M2_Environment_Properties", and "M3Freight_Properties", define the basic parameters of the vehicle, the charging infrastructure, and the driving cycle.   
+While the essential parameters of the charging infrastructure and the transport profile are defined within a scenario (see input), vehicle parameters such as driving resistance coefficients or efficiencies can be defined within the corresponding script of the first module.  
+The modules 5-7 contain the actual models of the vehicle (drivetrain, mass) and the charging infrastructure. The Operation Simulation with the sub-modules Simulation, Action, and Driving offers all the functions required for driving and charging the vehicle. 
+The Operation Strategy module contains the various charging management functions. 
+The remaining modules are used for visualization or specific investigations and are not required for the essential operation simulation of BET.   
 ## Perform a single operation simulation:
-
 ### Input:
 The input is defined through a scenario using a DataFrame. This is done in the script scenario_definition.py.  
 To create one single scenario, you can change every property of the battery electric truck, the charging infrastructure, and the underlying transport scenario within the function: scenario_gen()  
