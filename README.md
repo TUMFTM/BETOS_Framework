@@ -71,3 +71,4 @@ Further information will be provided as soon the research article is published.
 ## Contributing and Support
 We encourage everybody to contribute to this work. If you have any feedback, don't hesitate to get in touch with me at maximilian.zaehringer@tum.de
 ## License
+GNU GENERAL PUBLIC LICENSE
