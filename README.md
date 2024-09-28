@@ -55,7 +55,7 @@ All simulation results are accessible in the DataFrame "results". These are:
 We provide one visualization script (M12_Visualization/...), which shows the SOC trajectory of the truck's battery over time and distance. 
 The execution of the script is, by default, hidden.
 
-## Perform multiple simulation runs using multiprocessing for the article: Optimizing the Journey:
+## Perform multiple simulation runs using multiprocessing for the article: <br /> Optimizing the Journey
 Addressing the research article "Optimizing the Journey: Dynamic Charging Strategies for Battery-Electric Trucks in Long-Haul Transport", we show the simulation of the scenarios shown in this paper.  
 All results and plotting scripts for this paper can be found in M13_Simulation_Task.   
 ### Input:
@@ -68,15 +68,20 @@ If you want to recalculate the results from Section 4.2 or 4.3, activate the lin
 The number of runs is defined by the length of the vector "iter".  
 If you want to store the simulation results as CSV, you can activate the line: M13-SimulationTask.postprocess_multi_sx(result)  
 
-### Visualization used in the research article: Optimizing the Journey:
+### Visualization used in the research article: <br /> Optimizing the Journey
 We provide a plotting script within Modules/M13_Simulation_Task/M13_Plotting_Script_Research_Article. If you call the function plotting() all Figures of the paper are generated.  The results used in the research article are located in M13_Simulation_Task/Results/Paper_no2/.
 
-## End-of-life simulation for lifetime prediction of battery-electric long-haul-trucks:
-The framework provides a lifetime prediction simulation for two different cell chemistries (NMC and LFP). The investigations based on this Module are published under:
-Zaehringer et al.: Fast track to a million - A simulative case studay on the influence of charging management on the lifetime of battery electric trucks
+## End-of-life simulation for lifetime prediction of battery-electric long-haul-trucks: <br /> Fast the track to a million
+The framework provides a lifetime prediction simulation for two different cell chemistries (NMC and LFP). The investigations based on this Module are published under: <br />
+Zaehringer et al.: Fast track to a million - A simulative case studay on the influence of charging management on the lifetime of battery electric trucks <br />
+For more information on the used aging models and its limitations we encourage every user to read the corresponding research article.
 
-### How to simulate the lifetime
-The lifetime simualtion could be stared via the main script. The correspondig function is M14_EOL_Simualtion.eol_simualtion. This gives a object eol back with the main results of the lifetime prediction. All detailed results are automatically stored as single .csv files after simualted operation week. 
+### How to simulate the lifetime of a battery electric truck with this framework
+The lifetime simualtion could be stared via the main script. The correspondig function is M14_EOL_Simualtion.eol_simualtion. This gives a object eol back with the main results of the lifetime prediction. All detailed results are automatically stored as single .csv files after simualted operation week. <br />
+- Step 1 Scenario Definition: <br /> Exemplary scenarios for the lifetime simualtion can be found with in the script scenario_aging.py. <br />
+When defining own scenarios some properties are important: A scenario should be defined as an operation week. This means that the set trip_length is the distance for the whole week. With the scenario parameter max_daily_distance the maximum daily distance can be specified. This parameter has to be set in the kind that every weekday there is a stint of driving. Next, the three different charging management functions can be used. The rulebased one (version = 0) and the optimal charging managment for multidays (version = 3) are just different in term of en-route charging. For overnight and weekend charging they need the same function. With betos_informed (version = 31) an aging-focused overnight and weekend charging coupled with the optimal en-route charging is choosen. <br /> <br />
+- Step 2 Results: <br />
+In the eol object three different traces are stored. The mileage trace, the state of health trace and the battery capacity trace. The sample rate of these traces is on a weekly basis. Next to this results, more detailed results are stored as a .csv file after the simualtion if a week. The files are stored under Modules/M14_EOL_Simulation/M14_EOL_Results/. 
 
 ### Implementation of the lifetime simulation
 
