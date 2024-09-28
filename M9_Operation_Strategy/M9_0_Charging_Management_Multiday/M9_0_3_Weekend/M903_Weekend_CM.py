@@ -23,9 +23,12 @@ def weekend_charging(sim, env, vehicle):
     sim.eol_battery_aging_event_id[sim.eol_aging_evaluation_event] = 0        # Driving before Weekend Charging
     sim, env, vehicle = M10_Evaluation_Aging.aging_evaluation(sim, env, vehicle)
     # <>
-    # Call easy slow charge function
-    sim = slow_charging_weekend_heuristic(sim, env, vehicle)
-    # Use advanced overnight charging function
+    if sim.betos_version != 31:
+        # Call easy slow charge function
+        sim = slow_charging_weekend(sim, env, vehicle)
+    else:
+        # Use advanced overnight charging function
+        sim = slow_charging_weekend_heuristic(sim, env, vehicle)
 
     # <>
     # Aging Evaluation:
