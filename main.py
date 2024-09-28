@@ -58,7 +58,7 @@ import scenario_aging
 #summary[:, 0] = eol.milage_trace[0:eol.week_count]
 #summary[:, 1] = eol.battery_soh_trace[0:eol.week_count]
 #summary[:, 2] = eol.battery_capacity_trace[0:eol.week_count]
-#np.savetxt('Modules/M14_EOL_Simulation/M14_EOL_Results/scenario_1050_summary.csv', summary, delimiter=',')
+#np.savetxt('Modules/M14_EOL_Simulation/M14_EOL_Results/scenario_summary.csv', summary, delimiter=',')
 
 
 
