@@ -5,6 +5,10 @@ Optimizing the Journey: Dynamic Charging Strategies for Battery-Electric Trucks 
 Authors: M.Zaehringer, O.Teichert, G.Balke, J.Schneider, M.Lienkamp  
 DOI: https://doi.org/10.3390/en17040973
 
+Fast track to a million - A simulative case study on the influence of charging management on the lifetime of battery electric trucks
+Authors: M. Zaehringer, J. Schneider, G. Balke, K. Abo Gamra, N. Klein, M. Lienkamp
+DOI: https://doi.org/10.1016/j.prime.2024.100731
+
 ## Necessary Python Packages and Libraries:
 We recommend Python 3.7 to 3.10 to run the code.
 The following libraries are used: numpy, scipy, matplotlib, multiprocessing, pandas
@@ -67,8 +71,18 @@ If you want to store the simulation results as CSV, you can activate the line: M
 We provide a plotting script within Modules/M13_Simulation_Task/M13_Plotting_Script_Research_Article. If you call the function plotting() all Figures of the paper are generated.  The results used in the research article are located in M13_Simulation_Task/Results/Paper_no2/.
 
 ## End-of-life simulation for lifetime prediction of battery-electric long-haul-trucks:
-Further information will be provided as soon the research article is published.  
+The framework provides a lifetime prediction simulation for two different cell chemistries (NMC and LFP). The investigations based on this Module are published under:
+Zaehringer et al.: Fast track to a million - A simulative case studay on the influence of charging management on the lifetime of battery electric trucks
+
+### How to simulate the lifetime
+The lifetime simualtion could be stared via the main script. The correspondig function is M14_EOL_Simualtion.eol_simualtion. This gives a object eol back with the main results of the lifetime prediction. All detailed results are automatically stored as single .csv files after simualted operation week. 
+
+### Implementation of the lifetime simulation
+
+### Access the results of the research article
+
 ## Contributing and Support
 We encourage everybody to contribute to this work. If you have any feedback, don't hesitate to get in touch with me at maximilian.zaehringer@tum.de
+
 ## License
 Apache License, Version 2.0
