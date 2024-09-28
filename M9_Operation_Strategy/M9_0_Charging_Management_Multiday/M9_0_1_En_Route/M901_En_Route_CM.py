@@ -298,9 +298,6 @@ def state_space_definition(sim, vehicle, env, n_poi, poi_id_crit, poi_id_current
 # Decisions are charging time and executed rest time at PoI
 def decision_space_definition(sim, vehicle, env):
     # Decision 1: Charging time
-    # Maximum Charging time in case of 0 to 100 % at slowest charger
-    slowest_charger = int(np.argmax(vehicle.charging_time_map[0, :]))
-    max_charging_time = sum(vehicle.charging_time_map[:, slowest_charger])
     decision_1_charge = np.ceil(np.linspace(0, 100 * 60, num=101))  # Use 100 decisions in sec
     # Decision 2: Rest time: 0, 15, 30, 45 min
     decision_2_rest = np.array([0, 15, 30, 45])
