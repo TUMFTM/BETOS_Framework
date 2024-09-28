@@ -5,6 +5,7 @@ Optimizing the Journey: Dynamic Charging Strategies for Battery-Electric Trucks 
 Authors: M.Zaehringer, O.Teichert, G.Balke, J.Schneider, M.Lienkamp  
 DOI: https://doi.org/10.3390/en17040973
 
+
 Fast track to a million - A simulative case study on the influence of charging management on the lifetime of battery electric trucks
 Authors: M. Zaehringer, J. Schneider, G. Balke, K. Abo Gamra, N. Klein, M. Lienkamp
 DOI: https://doi.org/10.1016/j.prime.2024.100731
