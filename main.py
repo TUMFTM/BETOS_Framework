@@ -13,7 +13,9 @@ from Modules.M13_SimulationTask import M13_SimulationTask
 from Modules.M13_SimulationTask.M13_Results import M13_Result_Evaluation
 from Modules.M8_Operation_Simulation.M8_4_Simulation import M84_Multiday_Simulation
 from Modules.M13_SimulationTask import M13_Plotting_Script_Research_Article
+from Modules.M14_EOL_Simulation import M14_EOL_Simulation
 import scenario_definition
+import scenario_aging
 # ______________________________________________________________________________________________________________________
 # ______________________________________________________________________________________________________________________
 # Single Simulation Function:
@@ -46,6 +48,17 @@ import scenario_definition
 #if __name__=="__main__":
     #main()
 
+# ______________________________________________________________________________________________________________________
+# ______________________________________________________________________________________________________________________
+# End of Life Simulation Main Function
+# Paper: Fast track to a million - Mastering time-optimal on-route and aging focused overnight charging for battery
+# electric trucks
+# eol = M14_EOL_Simulation.eol_simulation()
+#summary = np.zeros((eol.week_count, 3))
+#summary[:, 0] = eol.milage_trace[0:eol.week_count]
+#summary[:, 1] = eol.battery_soh_trace[0:eol.week_count]
+#summary[:, 2] = eol.battery_capacity_trace[0:eol.week_count]
+#np.savetxt('Modules/M14_EOL_Simulation/M14_EOL_Results/scenario_1050_summary.csv', summary, delimiter=',')
 
 
 
