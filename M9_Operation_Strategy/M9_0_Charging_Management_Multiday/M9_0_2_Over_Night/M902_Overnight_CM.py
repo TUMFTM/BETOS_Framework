@@ -26,9 +26,12 @@ def overnight_charging(sim, env, vehicle):
     sim.eol_battery_aging_event_id[sim.eol_aging_evaluation_event] = 0      # Driving before overnight Charging
     sim, env, vehicle = M10_Evaluation_Aging.aging_evaluation(sim, env, vehicle)
     # <>
-    # Call easy slow charge function
-    sim = slow_charging_heuristic(sim, env, vehicle)
-    # Use advanced overnight charging function
+    if sim.betos_version != 31:
+        # Call easy slow charge function
+        sim = slow_charging(sim, env, vehicle)
+    else:
+        # Use advanced overnight charging function
+        sim = slow_charging_heuristic(sim, env, vehicle)
     # <>
     # Set overnight stay position
     sim.pos_overnight_stay = sim.step_dis
@@ -131,7 +134,7 @@ def slow_charging_heuristic(sim, env, vehicle):
     # Set heuristic params
     soc_hold = 0.2  # SOC Hold level
     charging_power_heuristic = (vehicle.battery_capacity / 4)  # Charging power in kW (C/4)
-    # Calculate Time to Charge to 50% SOC with C/4
+    # Calculate Time to Charge to Hold SOC with C/4
     charge_time_50_percent = (soc_hold - current_soc) * vehicle.battery_capacity / charging_power_heuristic  # in h
     # Calculate Time to charge from Hold SOC to target SOC
     charge_time_target_soc = (target_soc - max(current_soc, soc_hold)) * vehicle.battery_capacity / charging_power_heuristic  # in h
@@ -218,10 +221,4 @@ def slow_charging_heuristic(sim, env, vehicle):
     sim.betos_charge_amount[int(env.infra_array_poi_id[sim.step_dis])] = (target_soc-current_soc) * vehicle.battery_capacity
 
     return sim
-
-
-# Grid optimized charging
-
-
-# Grid serving charging
 
