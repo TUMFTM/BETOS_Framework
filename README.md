@@ -1,6 +1,6 @@
 # BETOS Framework (Battery-electric Truck Operation Simulation)
-This repository provides the open-source code for the operation simulation of battery-electric trucks (BET) in long-haul applications.  
-The simulation framework belongs to the following research articles: <br /> 
+This repository provides the open-source code for the operation simulation of battery-electric trucks (BET) in long-haul applications.  <br />
+The simulation framework belongs to the following research articles: <br /> <br />
 Optimizing the Journey: Dynamic Charging Strategies for Battery-Electric Trucks in Long-Haul Transport  <br />
 Authors: M.Zaehringer, O.Teichert, G.Balke, J.Schneider, M.Lienkamp  <br />
 DOI: https://doi.org/10.3390/en17040973
@@ -81,14 +81,18 @@ The lifetime simualtion could be stared via the main script. The correspondig fu
 - Step 1 Scenario Definition: <br /> Exemplary scenarios for the lifetime simualtion can be found with in the script scenario_aging.py. <br />
 When defining own scenarios some properties are important: A scenario should be defined as an operation week. This means that the set trip_length is the distance for the whole week. With the scenario parameter max_daily_distance the maximum daily distance can be specified. This parameter has to be set in the kind that every weekday there is a stint of driving. Next, the three different charging management functions can be used. The rulebased one (version = 0) and the optimal charging managment for multidays (version = 3) are just different in term of en-route charging. For overnight and weekend charging they need the same function. With betos_informed (version = 31) an aging-focused overnight and weekend charging coupled with the optimal en-route charging is choosen. <br /> <br />
 - Step 2 Results: <br />
-In the eol object three different traces are stored. The mileage trace, the state of health trace and the battery capacity trace. The sample rate of these traces is on a weekly basis. Next to this results, more detailed results are stored as a .csv file after the simualtion if a week. The files are stored under Modules/M14_EOL_Simulation/M14_EOL_Results/. 
+In the eol object three different traces are stored. The mileage trace, the state of health trace and the battery capacity trace. The sample rate of these traces is on a weekly basis. Next to this results, more detailed results are stored as a .csv file after the simualtion if a week. The files are stored under Modules/M14_EOL_Simulation/M14_EOL_Results/. <br />
+The weekly results are matrices with 15 different columns. The number of entries corresponds to the number of aging evaluations within one week. The 15 properties stored are: SOC, SOH, Timestamp, Position along tour, DOD, Average SOC, Average C-Rate, Maximum C-Rate, Average Cell Temperature, Total driving time of the week (Single Value), Total downtime of the week (Single Value), ID of the operation event (Driving, En-Route Charging, Overnight, Weekend), Capacity loss calendaric, Capacity loss cyclic, Internal resistance increase calendaric, Internal resistance increase cyclic.
 
 ### Implementation of the lifetime simulation
+The implementation of the end of life (EOL) simulation is done within two Modules. M14 includes the overall function for the weekly simulation, the results of the corresponding reseasrch article and a analyzation and visualization function for the results. The simulation itself uses the modules described above. Next to M14, M10 includes the evaluation of the aging for the two cell chemistries considered. For a detailed information about the models we refer to the research article. 
 
 ### Access the results of the research article
+All results of the research article are stored in M14_EOL_Simulation/M14_EOL_Results. We provide a plotting script (M14_plot_research results.py) for reproduction of the paper figures. 
 
 ## Contributing and Support
 We encourage everybody to contribute to this work. If you have any feedback, don't hesitate to get in touch with me at maximilian.zaehringer@tum.de
 
 ## License
+We encourage other researchers to use this framework and develop it further under: <br />
 Apache License, Version 2.0
